@@ -76,6 +76,8 @@ enum class PythonVersion(val version: String) {
 enum class SparkVersion(val short: String, val version: String) {
   V3_4_4(short = "3", version = "3.4.4"),
   V3_5_5(short = "3", version = "3.5.5"),
+  V4_0_2(short = "4", version = "4.0.2"),
+  V4_1_1(short = "4", version = "4.1.1"),
 }
 
 enum class PySparkVersion(
@@ -105,6 +107,36 @@ enum class PySparkVersion(
       setOf(
           JavaVersion.V_8,
           JavaVersion.V_11,
+          JavaVersion.V_17,
+          JavaVersion.V_21,
+      ),
+      setOf(
+          PythonVersion.V3_9,
+          PythonVersion.V3_10,
+          PythonVersion.V3_11,
+          PythonVersion.V3_12,
+          PythonVersion.V3_13,
+      ),
+  ),
+  V4_0(
+      SparkVersion.V4_0_2,
+      ScalaVersion.V2_13,
+      setOf(
+          JavaVersion.V_17,
+          JavaVersion.V_21,
+      ),
+      setOf(
+          PythonVersion.V3_9,
+          PythonVersion.V3_10,
+          PythonVersion.V3_11,
+          PythonVersion.V3_12,
+          PythonVersion.V3_13,
+      ),
+  ),
+  V4_1(
+      SparkVersion.V4_1_1,
+      ScalaVersion.V2_13,
+      setOf(
           JavaVersion.V_17,
           JavaVersion.V_21,
       ),
@@ -227,6 +259,8 @@ fun collectArtifacts(buildType: BuildType): BuildType {
       """
         +:spark-3/target/*_for_spark_*.jar => packages
         +:spark-3/target/*.zip => packages
+        +:spark-4/target/*_for_spark_*.jar => packages
+        +:spark-4/target/*.zip => packages
     """
           .trimIndent()
 

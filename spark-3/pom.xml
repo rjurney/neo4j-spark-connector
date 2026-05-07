@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-connector-apache-spark_parent</artifactId>
-        <version>5.4.2-SNAPSHOT</version>
+        <version>5.4.3-SNAPSHOT</version>
     </parent>
     <artifactId>neo4j-connector-apache-spark</artifactId>
     <packaging>jar</packaging>
@@ -101,7 +101,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>${maven-assembly-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>bin</id>
